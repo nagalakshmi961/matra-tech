@@ -1,0 +1,19 @@
+package com.interview.questions;
+
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
+public class EmailValidation {
+	public static final Pattern VALID_EMAIL_ADDRESS_REGEX = Pattern.compile("[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?",
+			Pattern.CASE_INSENSITIVE);
+
+	public static boolean validate(String emailStr) {
+		Matcher matcher = VALID_EMAIL_ADDRESS_REGEX.matcher(emailStr);
+		return matcher.find();
+	}
+
+	public static void main(String args[]) {
+		System.out.println(validate("first(1)last@gmail.com"));
+
+	}
+}

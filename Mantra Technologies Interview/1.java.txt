@@ -1,0 +1,33 @@
+package com.interview.questions;
+
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
+
+public class ReadFileData {
+	public static void main(String args[]) {
+
+		File[] files = new File("C:\\readFile").listFiles();
+
+		for (File file : files) {
+			if (file.isFile()) {
+
+				BufferedReader br;
+				try {
+					br = new BufferedReader(new FileReader(file));
+					String st;
+					while ((st = br.readLine()) != null)
+						System.out.println(st);
+				} catch (IOException e) {
+
+					e.printStackTrace();
+				}
+
+			}
+			break;
+		}
+
+	}
+
+}
